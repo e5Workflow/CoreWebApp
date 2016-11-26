@@ -15,4 +15,9 @@ This demonstrates an issue with dotnetcore where a PreFlight (OPTIONS) request r
 <br>You can use this jsFiddle for the ajax calls:
 <br>http://jsfiddle.net/enricosaunders/o2u3yete/
 <br>
-<br>Note that the pipeline does not reach any custom middleware for an OPTIONS , 
+<br>Note that the pipeline does not reach any custom middleware for an OPTIONS Method call.
+<br>
+<br><b>This issue can be worked around by using AnonymousAuthentication see the working example in the <i>Fix CORS issue</i> commit:</b>
+<br>Allow both WindowsAuthentication and AnonymousAuthentication.
+<br>In the 1st middleware check for authentication for all methods except OPTIONS (Preflight) and return a 401 where appropriate.
+
